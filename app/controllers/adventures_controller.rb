@@ -1,5 +1,5 @@
 class AdventuresController < ApplicationController
-  # before_action :set_adventure, only: [:show, :edit, :update, :destroy]
+  before_action :set_adventure, only: [:show, :edit, :update, :destroy]
 
   # GET /adventures
   # GET /adventures.json
@@ -64,9 +64,9 @@ class AdventuresController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # def set_adventure
-    #   # @adventure = Adventure.find(params[:id])
-    # end
+    def set_adventure
+      @adventure = Adventure.find(params[:id])
+    end
 
     #testing before action
 
