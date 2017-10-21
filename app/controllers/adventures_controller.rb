@@ -10,7 +10,6 @@ class AdventuresController < ApplicationController
   # GET /adventures/1
   # GET /adventures/1.json
   def show
-     @adventure = Adventure.find(params[:id])
   end
 
   # GET /adventures/new
@@ -26,16 +25,21 @@ class AdventuresController < ApplicationController
   # POST /adventures.json
   def create
     @adventure = Adventure.new(adventure_params)
-
-    respond_to do |format|
       if @adventure.save
-        format.html { redirect_to @adventure, notice: 'Adventure was successfully created.' }
-        format.json { render :show, status: :created, location: @adventure }
+        flash[:notice] = "Article was successfully created"
+        redirect_to adventure_path(@adventure)
       else
-        format.html { render :new }
-        format.json { render json: @adventure.errors, status: :unprocessable_entity }
+        render 'new'
       end
-    end
+    # respond_to do |format|
+    #   if @adventure.save
+    #     format.html { redirect_to action: "index", notice: 'Adventure was successfully created.' }
+    #     format.json { render :show, status: :created, location: @adventure }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @adventure.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /adventures/1
@@ -57,7 +61,7 @@ class AdventuresController < ApplicationController
   def destroy
     @adventure.destroy
     respond_to do |format|
-      format.html { redirect_to adventures_url, notice: 'Adventure was successfully destroyed.' }
+      format.html { redirect_to adventures_url, notice: 'Adventure was successfully destroyed.'}
       format.json { head :no_content }
     end
   end
