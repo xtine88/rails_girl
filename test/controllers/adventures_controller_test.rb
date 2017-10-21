@@ -17,7 +17,7 @@ class AdventuresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create adventure" do
     assert_difference('Adventure.count') do
-      post adventures_url, params: { adventure: { name: @adventure.name } }
+      post adventures_url, params: { adventure: { description: @adventure.description, location: @adventure.location, name: @adventure.name, picture: @adventure.picture, visit: @adventure.visit } }
     end
 
     assert_redirected_to adventure_url(Adventure.last)
@@ -34,7 +34,7 @@ class AdventuresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update adventure" do
-    patch adventure_url(@adventure), params: { adventure: { name: @adventure.name } }
+    patch adventure_url(@adventure), params: { adventure: { description: @adventure.description, location: @adventure.location, name: @adventure.name, picture: @adventure.picture, visit: @adventure.visit } }
     assert_redirected_to adventure_url(@adventure)
   end
 
