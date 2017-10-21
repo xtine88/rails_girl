@@ -1,3 +1,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background-color: #DDE7C7;
+}
+
+table, th, td {
+  border: 1px solid black !important;
+}
