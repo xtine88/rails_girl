@@ -31,15 +31,6 @@ class AdventuresController < ApplicationController
       else
         render 'new'
       end
-    # respond_to do |format|
-    #   if @adventure.save
-    #     format.html { redirect_to action: "index", notice: 'Adventure was successfully created.' }
-    #     format.json { render :show, status: :created, location: @adventure }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @adventure.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /adventures/1
